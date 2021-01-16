@@ -1,0 +1,9 @@
+#define HELLO Hello there!
+
+!title
+>head
+>inner Hello world in btml
+
+!h1
+>inner HELLO
+>style background-color: red;
