@@ -17,7 +17,11 @@ public class macros {
                 String[] splitLine = line.split(" ", 3);
                 macros.put(splitLine[1], splitLine[2]);
                 indexToRemove.add(lineCounter);
-            }else{
+            }else if(line.startsWith("#//")){
+                indexToRemove.add(lineCounter);
+            }else if(line.contains("#//")){
+                output.set(lineCounter, output.get(lineCounter).split("#//")[0]);
+            } else{
                 for(String macroName: macros.keySet()){
                     output.set(lineCounter, output.get(lineCounter).replace(macroName, macros.get(macroName)));
                 }
